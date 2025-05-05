@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TV-Interact.sln"
+    "dotnet.defaultSolution": "Heineken_05_2025.sln"
 }
