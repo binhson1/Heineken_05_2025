@@ -6,8 +6,8 @@ using System.IO;
 public class ImageUploader : MonoBehaviour
 {
     [SerializeField] public string uploadURL = "http://192.168.1.100:9456/api/image/upload";
-    [SerializeField] public string imageFolderPath = "Data"; // Thư mục chứa ảnh, tương đối với thư mục ứng dụng
-    [SerializeField] public string imageFileName = "image.png"; // Tên file ảnh
+    [SerializeField] public string imageFolderPath = "Data";
+    [SerializeField] public string imageFileName = "image.png";
     private string description = "";
 
     public void UploadImage()
@@ -17,26 +17,24 @@ public class ImageUploader : MonoBehaviour
 
     IEnumerator UploadImageCoroutine()
     {
-        // Xây dựng đường dẫn đầy đủ đến file ảnh
         string fullPath = Path.Combine(Application.dataPath, "..", imageFolderPath, imageFileName);
-        fullPath = Path.GetFullPath(fullPath); // Chuẩn hóa đường dẫn
+        fullPath = Path.GetFullPath(fullPath);
 
-        // Kiểm tra xem file có tồn tại không
         if (!File.Exists(fullPath))
         {
             Debug.LogError("Không tìm thấy file ảnh tại đường dẫn: " + fullPath);
             yield break;
         }
 
-        // Đọc dữ liệu ảnh trực tiếp từ file
         byte[] imageData = File.ReadAllBytes(fullPath);
 
-        // Tạo form và thêm dữ liệu
         WWWForm form = new WWWForm();
         form.AddBinaryData("image", imageData, imageFileName, GetMimeTypeFromFileName(imageFileName));
+
+        description = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
         form.AddField("description", description);
 
-        // Gửi request
         using (UnityWebRequest request = UnityWebRequest.Post(uploadURL, form))
         {
             yield return request.SendWebRequest();
@@ -52,7 +50,6 @@ public class ImageUploader : MonoBehaviour
         }
     }
 
-    // Hàm xác định MIME type dựa trên phần mở rộng của file
     private string GetMimeTypeFromFileName(string fileName)
     {
         string extension = Path.GetExtension(fileName).ToLowerInvariant();
@@ -71,20 +68,24 @@ public class ImageUploader : MonoBehaviour
             case ".webp":
                 return "image/webp";
             default:
-                return "application/octet-stream"; // Default MIME type
+                return "application/octet-stream";
         }
     }
 
-    // Phương thức để thiết lập đường dẫn từ code
+
     public void SetImagePath(string folderPath, string fileName)
     {
         imageFolderPath = folderPath;
         imageFileName = fileName;
     }
 
-    // Phương thức để thiết lập mô tả từ code
     public void SetDescription(string desc)
     {
-        description = desc;
+        if (string.IsNullOrEmpty(desc))
+        {
+            description = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            return;
+        }
+        description = desc + "_" + System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
     }
 }
