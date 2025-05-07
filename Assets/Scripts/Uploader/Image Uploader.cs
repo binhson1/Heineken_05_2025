@@ -2,12 +2,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 
 public class ImageUploader : MonoBehaviour
 {
     [SerializeField] public string uploadURL = "http://192.168.1.100:9456/api/image/upload";
-    [SerializeField] public string imageFolderPath = "data"; // Thư mục chứa ảnh, tương đối với thư mục ứng dụng
+    [SerializeField] public string imageFolderPath = "Data"; // Thư mục chứa ảnh, tương đối với thư mục ứng dụng
     [SerializeField] public string imageFileName = "image.png"; // Tên file ảnh
     private string description = "";
 
@@ -40,10 +39,6 @@ public class ImageUploader : MonoBehaviour
         // Gửi request
         using (UnityWebRequest request = UnityWebRequest.Post(uploadURL, form))
         {
-            // Cho phép kết nối không bảo mật (HTTP)
-            request.certificateHandler = new BypassCertificate();
-            request.disposeCertificateHandlerOnDispose = true;
-
             yield return request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
@@ -91,15 +86,5 @@ public class ImageUploader : MonoBehaviour
     public void SetDescription(string desc)
     {
         description = desc;
-    }
-
-    // Lớp để bỏ qua kiểm tra chứng chỉ SSL/TLS cho kết nối không bảo mật
-    public class BypassCertificate : CertificateHandler
-    {
-        protected override bool ValidateCertificate(byte[] certificateData)
-        {
-            // Trả về true để luôn chấp nhận chứng chỉ
-            return true;
-        }
     }
 }

@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b0cbe32e64fe48a876363d80edd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uploadURL: https://your-server.com/upload
+  uploadURL: http://192.168.1.100:9456/api/image/upload
   imageToUpload: {fileID: 2800000, guid: 30cc1f8838fc8554dac7bbb2a593c228, type: 3}
 --- !u!1 &1143002604
 GameObject:
