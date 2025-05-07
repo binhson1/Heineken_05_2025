@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/TestingCamera.unity
+    guid: 0e5cfe5388be0734eae372760b0c0bbf
+  - enabled: 1
+    path: Assets/Scenes/Ver1-Kinect.unity
+    guid: e577a8302d9dd0a4f8da1ef362157c7c
   m_configObjects: {}
