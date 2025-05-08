@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 30cc1f8838fc8554dac7bbb2a593c228, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   invertAlphaColorMask: 0
   erodeIterations0: 0
   dilateIterations: 0
-  erodeIterations: 1
+  erodeIterations: 0
   bodyBlurFilter: 2
   bodyContourColor: {r: 0.0627451, g: 0.14117648, b: 0.22352943, a: 1}
   debugText: {fileID: 0}
@@ -1778,11 +1778,11 @@ MonoBehaviour:
   DisplayMapsWidthPercent: 20
   useMultiSourceReader: 1
   minUserDistance: 0.5
-  maxUserDistance: 0
+  maxUserDistance: 2
   maxLeftRightDistance: 0
-  maxTrackedUsers: 6
+  maxTrackedUsers: 4
   showTrackedUsersOnly: 1
-  userDetectionOrder: 0
+  userDetectionOrder: 1
   centralPosition: {x: 0, y: 0, z: 0}
   ignoreInferredJoints: 0
   ignoreZCoordinates: 0
