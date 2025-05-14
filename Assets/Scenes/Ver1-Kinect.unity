@@ -1037,7 +1037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &353565449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1748,10 +1748,10 @@ MonoBehaviour:
   computeBodyTexOnly: 0
   invertAlphaColorMask: 0
   erodeIterations0: 0
-  dilateIterations: 0
+  dilateIterations: 3
   erodeIterations: 0
   bodyBlurFilter: 2
-  bodyContourColor: {r: 0.0627451, g: 0.14117648, b: 0.22352943, a: 1}
+  bodyContourColor: {r: 1, g: 1, b: 1, a: 1}
   debugText: {fileID: 0}
 --- !u!114 &762920938
 MonoBehaviour:
