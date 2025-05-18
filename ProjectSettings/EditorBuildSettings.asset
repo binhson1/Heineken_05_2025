@@ -17,7 +17,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestingUI.unity
     guid: d796c3ca2efcfcf458d5f31198935350
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ver3-TestingZed.unity
     guid: a363a098a591ff04ea64160df2faf613
+  - enabled: 0
+    path: Assets/Scenes/TestingKinectWithAI.unity
+    guid: 0a2f96af5b1dd744b850a9b5f9c7daa5
+  - enabled: 0
+    path: Assets/Scenes/Ver4-StableVer.unity
+    guid: 38c287a6d541d3b428bd736f3a4ee001
+  - enabled: 0
+    path: Assets/Scenes/Ver5-ClipBG.unity
+    guid: 6d60e4ca348c06d43bd48a59aa758028
+  - enabled: 1
+    path: Assets/Scenes/Ver6-NewUI.unity
+    guid: 476d05c2c4fa7ac408f2eeb8a736e186
   m_configObjects: {}
